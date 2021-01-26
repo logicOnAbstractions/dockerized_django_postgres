@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  django:
+    image: my_django_img
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    volumes:
+      - django_vol:/app
+    ports:
+      - "80:8000"
+
+volumes:
+  django_vol:
+
+

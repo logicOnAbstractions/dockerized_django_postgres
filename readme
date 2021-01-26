@@ -1,0 +1,43 @@
+about
+---------
+
+this directory contains everything necessary to setup a django project on docker with posgres DB, using gunicorn & nginx
+
+
+local setup
+-------------------
+
+* a few cmds to run to create the django repos locally 
+	* mkdir app && cd app
+	* python -m venv venv 
+	* source /venv/bin/activate
+	* (venv) pip install -r requirements.txt
+	* django-admin startproject myproject .
+	* python manage.py migrate
+	* add "0.0.0.0" to /app/myproject/settings.py to ALLOWED_HOST=[]
+	* python manage.py runserver
+	* 0.0.0.0:8000 should show django welcome page
+
+Our structre at this point:
+
+.
+├── /app
+│   ├── db.sqlite3
+│   ├── Dockerfile
+│   ├── manage.py
+│   ├── /myproject
+│   │   ├── asgi.py
+│   │   ├── __init__.py
+│   │   ├── /__pycache__
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── requirements.txt
+│   └── /venv
+├── docker-compose.yml
+└── readme
+
+
+
+structure
+----------------
